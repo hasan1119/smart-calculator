@@ -33,6 +33,10 @@
             height: 60px;
             font-size: 30px;
         }
+        .equalClear input{
+            width: 156px;
+            height: 60px;
+        }
 
     </style>
 </head>
@@ -40,44 +44,53 @@
 <body>
 
     <section class=" d-flex justify-content-center align-items-center vh-100" id="calculator">
-        <form class="inner-cal">
+        <div class="inner-cal">
             <input id="display" readonly placeholder="0" class="fs-1 text-end fw-bold  form-control p-2">
             <div class="rows mt-3">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="9" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="8" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="7" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-warning" value="+" type="button">
-            </div>
-            <div class="rows mt-2">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="6" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="5" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="4" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-warning" value="- " type="button">
-            </div>
-            <div class="rows mt-2">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="3" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="2" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="1" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-warning" value="* " type="button">
-            </div>
-            <div class="rows mt-2">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="0" type="button">
-                <input onclick="getValue(this.value)"  class="btn btn-primary" value="00" type="button">
-                <input id="clear"  class="btn btn-primary" value="C" type="button">
-                <input id="equation"  class="btn btn-warning" value="=" type="button">
-            </div>
 
-        </form>
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="9" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="8" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="7" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-warning" value="+" type="button">
+            </div>
+            <div class="rows mt-2">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="6" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="5" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="4" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-warning" value="- " type="button">
+            </div>
+            <div class="rows mt-2">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="3" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="2" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="1" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-warning" value="* " type="button">
+            </div>
+            <div class="rows mt-2">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="0" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-primary" value="00" type="button">
+
+
+                <input onclick="getValue(this.value)" class="btn btn-warning" value="/" type="button">
+                <input onclick="getValue(this.value)" class="btn btn-warning" value="%" type="button">
+            </div>
+            <div class="rows equalClear mt-2">
+                <input id="clear" class="btn btn-primary" value="C" type="button">
+                <input id="equation" class="btn btn-warning" value="=" type="button">
+            </div>
+        </div>
     </section>
     <script>
-        function getValue(x) {
-            var display = document.getElementById('display');
-            display.value = display.value + x;
+        function getValue(value) {
+            let display = document.getElementById('display');
+            display.value = display.value + value;
+
         }
-        document.getElementById('equation').addEventListener('click', () => {
+
+
+        document.getElementById('equation').addEventListener('click', function () {
             display.value = eval(display.value)
         })
-        document.getElementById('clear').addEventListener('click', () => {
+        document.getElementById('clear').addEventListener('click', function () {
             display.value = ''
         })
 
